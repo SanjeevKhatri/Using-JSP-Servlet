@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.mum.lab1.service.LoginService;
+import edu.mum.lab1.serviceImpl.LoginServiceImpl;
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
@@ -23,9 +24,7 @@ public class LoginController extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		
-
-		LoginService loginService = new LoginService();
+		LoginService loginService = new LoginServiceImpl();
 		Boolean result = loginService.loginVerification(username, password);
 
 		if (result) {
